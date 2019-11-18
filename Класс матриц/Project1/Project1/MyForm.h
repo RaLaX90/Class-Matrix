@@ -384,7 +384,7 @@ void PrintMatr(float **mas, int size) {
 	}
 }
 
-void Get_mass(float **mass, float **temp_arr, int size) {////////////////////////int i, int j,
+void Get_mass(float **mass, float **temp_arr,int i,int j, int size) {////////////////////////int i, int j,
 
 	int ki, kj, di, dj;
 	di = 0;
@@ -392,14 +392,14 @@ void Get_mass(float **mass, float **temp_arr, int size) {///////////////////////
 	//PrintMatr(temp_arr, size);
 
 	for (ki = 0; ki < size - 1; ki++) {
-		if (ki == 0) {
+		if (ki == i) {
 			di = 1;
 		}
 
 		dj = 0;
 
 		for (kj = 0; kj < size - 1; kj++) {
-			if (kj == 0) {
+			if (kj == j) {
 				dj = 1;
 			}
 			temp_arr[ki][kj] = mass[ki + di][kj + dj];
@@ -455,7 +455,7 @@ float Det(float **mass, int size) {
 			int z;
 
 			if (i == 0) {
-				Get_mass(mass, temp_arr2, size);
+				Get_mass(mass, temp_arr2, 0, 0, size);
 				temp_arr[i] = mass[0][0];
 
 				for (int ii = 0; ii < size - 1; ii++) {
@@ -466,7 +466,7 @@ float Det(float **mass, int size) {
 					}
 				}
 			} else if(i != size - 2){
-				Get_mass(temp_arr2, temp_arr3, size - i);
+				Get_mass(temp_arr2, temp_arr3, 0, 0, size - i);
 				//PrintMatr(temp_arr3, size - i);
 				temp_arr[i] = copy_temp_arr[0][0];
 
@@ -479,11 +479,7 @@ float Det(float **mass, int size) {
 				}
 				//PrintMatr(temp_arr2, size - i);
 			} else if(i == size - 2) {
-				//PrintMatr(temp_arr2, size);
-				//PrintMatr(temp_arr3, size);
-				Get_mass(temp_arr2, temp_arr3, size - i);
-				//PrintMatr(temp_arr2, size);
-				//PrintMatr(temp_arr3, size);
+				Get_mass(temp_arr2, temp_arr3, 0, 0, size - i);
 				temp_arr[i] = (temp_arr2[0][0] * temp_arr2[1][1]) - (temp_arr2[1][0] * temp_arr2[0][1]);
 				break;
 			}
@@ -518,6 +514,18 @@ float Det(float **mass, int size) {
 
 }
 
+void Transp(float **mass, int size) {
+
+	float temp;
+	for (int i = 0; i < size; i++) {
+		for (int j = i + 1; j < size; j++) {
+			temp = mass[i][j];
+			mass[i][j] = mass[j][i];
+			mass[j][i] = temp;
+		}
+	}
+
+}
 
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -973,66 +981,133 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 	}
 }
 private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if (dataGridView1->ColumnCount == dataGridView2->RowCount) {
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
+	if (dataGridView1->ColumnCount != 0) {
+		float **mas = new float *[dataGridView1->ColumnCount];
 
-			string str1;
-			double str2;
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
-					//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
-					if (Obj1.getMatrix(i, j) != str2) {
-						Obj1.setMatrix(i, j, (float)str2);
+		string str1;
+		double str2;
+		for (int i = 0; i < dataGridView1->RowCount; i++) {
+			mas[i] = new float[dataGridView1->ColumnCount];
+			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+				str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
+				str2 = atof(str1.c_str());
+				//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
+				//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
+				mas[i][j] = (float)str2;
+			}
+		}
+
+		float det = Det(mas, dataGridView1->ColumnCount);
+		if (det != 0) {
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				float **temp_arr2 = new float *[dataGridView1->ColumnCount - 1];
+				float **temp_arr3 = new float *[dataGridView1->ColumnCount];
+				//float **copy_temp_arr = new float *[size];
+
+				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+
+					if(i != dataGridView1->ColumnCount - 1){
+						temp_arr2[i] = new float[dataGridView1->ColumnCount - 1];
 					}
+					temp_arr3[i] = new float[dataGridView1->ColumnCount];
 
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
+				}
 
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
+				PrintMatr(mas, dataGridView1->ColumnCount);
+
+				Transp(mas, dataGridView1->ColumnCount);
+
+				PrintMatr(mas, dataGridView1->ColumnCount);
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						Get_mass(mas, temp_arr2, i, j, dataGridView1->ColumnCount);
+						//MessageBox::Show(mas[i][j].ToString()," ", i.ToString(), " ", j.ToString(), "Вывод матрицы из файла");
+						//richTextBox1->Text += mas[i][j], i, j, "\n";
+
+						//mas[i][j] = Det(temp_arr2, dataGridView1->ColumnCount - 1);
+
+						if ((((i + 1) + (j + 1)) % 2) == 0) {
+							temp_arr3[i][j] = (1 / det) * Det(temp_arr2, dataGridView1->ColumnCount - 1);///1
+						} else {
+							temp_arr3[i][j] = (1 / det) * (Det(temp_arr2, dataGridView1->ColumnCount - 1) * (-1));///1
+						}
+						
+
+						/*if ((i + j) == 0) {/////2
+							temp_arr3[i][j] = mas[i][j] / (Det(temp_arr2, dataGridView1->ColumnCount - 1));
+						} else {
+							temp_arr3[i][j] = mas[i][j] / (Det(temp_arr2, dataGridView1->ColumnCount - 1) * (-1));
+						}*/
+
+						//PrintMatr(temp_arr2, dataGridView1->ColumnCount - 1);
+						//richTextBox1->Text += "-------------------------------------------------------\n";
 					}
 				}
-			}
 
-			/*for (int i = 0; i < dataGridView2->RowCount; i++) {
-				for (int j = 0; j < dataGridView2->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					Obj2.setMatrix(i, j, (float)str2);
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
 				}
-			}*/
-
-			//Obj3.Set(dataGridView1->RowCount, dataGridView1->ColumnCount);
-
-			Obj3 = Obj1 * Obj2;
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
-			}
 
 
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
-			}
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+				for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
+					dataGridView3->Rows->Add("", "");
 				}
-			}
+
+				//PrintMatr(temp_arr3, dataGridView1->ColumnCount - 1);
+
+				/*float **temp_arr4 = new float *[dataGridView1->ColumnCount];
+
+				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+
+					temp_arr4[i] = new float[dataGridView1->ColumnCount];
+
+				}
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						temp_arr4[i][j] = 0;
+						for (int q = 0; q < dataGridView1->ColumnCount; q++) {
+							temp_arr4[i][j] += mas[i][q] * temp_arr3[q][j];
+						}
+					}
+				}
+
+				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+					delete[] temp_arr4[i];
+				}
+
+				delete[] temp_arr4;
+
+				temp_arr4 = nullptr;*/
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						dataGridView3->Rows[i]->Cells[j]->Value = temp_arr3[i][j];///////////////////////////////////////////////////////////////
+					}
+				}
+
+				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+					if (i != dataGridView1->ColumnCount - 1) {
+						delete[] temp_arr2[i];
+					}
+					delete[] temp_arr3[i];
+				}
+
+				delete[] temp_arr2;
+				delete[] temp_arr3;
+
+				temp_arr2 = nullptr;
+				temp_arr3 = nullptr;
 
 		} else {
-			MessageBox::Show("Множення матриць неможливе, так як кількість стовпців першої матриці(" + dataGridView1->ColumnCount.ToString()
-				+ ") не дорівнює кількості рядків другої матриці(" + dataGridView2->RowCount.ToString() + ")", "Вывод матрицы из файла");
+			MessageBox::Show("Визначник матриці дорівнює 0, тому знайти обернену матрицю неможливо.", "Вывод матрицы из файла");
 		}
 	} else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		MessageBox::Show("Не введено матрицю", "Вывод матрицы из файла");
 	}
 }
 
