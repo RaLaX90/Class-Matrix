@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <msclr\marshal_cppstd.h>
+//#include <msclr/marshal.h>
 #include "CLAS.h"
 
 Matrix Obj1;
@@ -21,12 +22,14 @@ namespace Project1 {
 	using namespace System::Drawing;
 
 	using namespace std;
+	using namespace msclr::interop;
+	//using namespace System::Runtime::InteropServices;
 
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
 
-	
+
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -89,9 +92,9 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
@@ -121,27 +124,27 @@ namespace Project1 {
 			// dataGridView1
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView1->Location = System::Drawing::Point(38, 88);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowTemplate->Height = 24;
@@ -300,9 +303,9 @@ namespace Project1 {
 			// 
 			// button12
 			// 
-			this->button12->Location = System::Drawing::Point(451, 227);
+			this->button12->Location = System::Drawing::Point(448, 227);
 			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(48, 44);
+			this->button12->Size = System::Drawing::Size(51, 44);
 			this->button12->TabIndex = 16;
 			this->button12->Text = L"-";
 			this->button12->UseVisualStyleBackColor = true;
@@ -310,9 +313,9 @@ namespace Project1 {
 			// 
 			// button13
 			// 
-			this->button13->Location = System::Drawing::Point(507, 227);
+			this->button13->Location = System::Drawing::Point(505, 227);
 			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(48, 44);
+			this->button13->Size = System::Drawing::Size(50, 44);
 			this->button13->TabIndex = 17;
 			this->button13->Text = L"*";
 			this->button13->UseVisualStyleBackColor = true;
@@ -375,1115 +378,897 @@ namespace Project1 {
 		}
 #pragma endregion
 
-void PrintMatr(float **mas, int size) {
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			richTextBox1->Text += mas[i][j].ToString() + " + ";
-		}
-		richTextBox1->Text += "\n";
-	}
-}
+		//void PrintMatr(float **mas, int size) {
+		//	for (int i = 0; i < size; i++) {
+		//		for (int j = 0; j < size; j++) {
+		//			richTextBox1->Text += mas[i][j].ToString() + " + ";
+		//		}
+		//		richTextBox1->Text += "\n";
+		//	}
+		//}
 
-void Get_mass(float **mass, float **temp_arr,int i,int j, int size) {////////////////////////int i, int j,
 
-	int ki, kj, di, dj;
-	di = 0;
+		//float Det(float **mass, int size) {
+		//	float det = 0;
+		//	int k = 1;
 
-	//PrintMatr(temp_arr, size);
+		//	if (size < 1) {
+		//		MessageBox::Show("Знайти визначник неможливо", "Вывод матрицы из файла");
+		//	}
+		//	else if (size == 1) {
+		//		det = mass[0][0];
+		//		return det;
+		//	}
+		//	else if (size == 2) {
+		//		det = (mass[0][0] * mass[1][1]) - (mass[1][0] * mass[0][1]);///////////////////////////////////////////////////////
+		//		return det;
+		//	}
+		//	else if (size > 2) {
+		//		float *temp_arr = new float[size - 1];
+		//		float **temp_arr2 = new float *[size];
+		//		float **temp_arr3 = new float *[size];
+		//		float **copy_temp_arr = new float *[size];
 
-	for (ki = 0; ki < size - 1; ki++) {
-		if (ki == i) {
-			di = 1;
-		}
+		//		for (int i = 0; i < size; i++) {
+		//			temp_arr2[i] = new float[size];
+		//			temp_arr3[i] = new float[size];
+		//			copy_temp_arr[i] = new float[size];
+		//		}
 
-		dj = 0;
+		//		/*for (int i = 0; i < size; i++) {
+		//			Get_mass(mass, temp_arr, i, 0, size);
+		//			//richTextBox1->Text += mass[i][0] + "\n";
+		//			PrintMatr(temp_arr, size - 1);
+		//			det = det + k * mass[i][0] * Det(temp_arr, size - 1);
+		//			k = -k;
+		//		}*/
 
-		for (kj = 0; kj < size - 1; kj++) {
-			if (kj == j) {
-				dj = 1;
-			}
-			temp_arr[ki][kj] = mass[ki + di][kj + dj];
-		}
-	}
+		//		for (int i = 0; i < size; i++) {
 
-	//PrintMatr(temp_arr, size);
-}
+		//			for (int i = 0; i < size; i++) {
+		//				for (int q = 0; q < size; q++) {
+		//					copy_temp_arr[i][q] = temp_arr2[i][q];
+		//				}
+		//			}
 
-float Det(float **mass, int size) {
-	float det = 0;
-	int k = 1;
+		//			int z;
 
-	if (size < 1) {
-		MessageBox::Show("Знайти визначник неможливо", "Вывод матрицы из файла");
-	}
-	else if (size == 1) {
-		det = mass[0][0];
-		return det;
-	}
-	else if (size == 2) {
-		det = (mass[0][0] * mass[1][1]) - (mass[1][0] * mass[0][1]);///////////////////////////////////////////////////////
-		return det;
-	}
-	else if (size > 2) {
-		float *temp_arr = new float [size - 1];
-		float **temp_arr2 = new float *[size];
-		float **temp_arr3 = new float *[size];
-		float **copy_temp_arr = new float *[size];
+		//			if (i == 0) {
+		//				Get_mass(mass, temp_arr2, 0, 0, size);
+		//				temp_arr[i] = mass[0][0];
 
-		for (int i = 0; i < size; i++) {
-			temp_arr2[i] = new float[size];
-			temp_arr3[i] = new float[size];
-			copy_temp_arr[i] = new float[size];
-		}
+		//				for (int ii = 0; ii < size - 1; ii++) {
+		//					z = 1;
+		//					for (int q = 0; q < size - 1; q++) {
+		//						temp_arr2[ii][q] = ((temp_arr[i] * temp_arr2[ii][q]) - (mass[ii + 1][0] * mass[0][z])) / temp_arr[i];
+		//						z++;
+		//					}
+		//				}
+		//			}
+		//			else if (i != size - 2) {
+		//				Get_mass(temp_arr2, temp_arr3, 0, 0, size - i);
+		//				//PrintMatr(temp_arr3, size - i);
+		//				temp_arr[i] = copy_temp_arr[0][0];
 
-		/*for (int i = 0; i < size; i++) {
-			Get_mass(mass, temp_arr, i, 0, size);
-			//richTextBox1->Text += mass[i][0] + "\n";
-			PrintMatr(temp_arr, size - 1);
-			det = det + k * mass[i][0] * Det(temp_arr, size - 1);
-			k = -k;
-		}*/
+		//				for (int ii = 0; ii < size - 2; ii++) {
+		//					z = 1;
+		//					for (int q = 0; q < size - 2; q++) {
+		//						temp_arr2[ii][q] = ((temp_arr[i] * temp_arr3[ii][q]) - (copy_temp_arr[ii + 1][0] * copy_temp_arr[0][z])) / temp_arr[i];
+		//						z++;
+		//					}
+		//				}
+		//				//PrintMatr(temp_arr2, size - i);
+		//			}
+		//			else if (i == size - 2) {
+		//				Get_mass(temp_arr2, temp_arr3, 0, 0, size - i);
+		//				temp_arr[i] = (temp_arr2[0][0] * temp_arr2[1][1]) - (temp_arr2[1][0] * temp_arr2[0][1]);
+		//				break;
+		//			}
 
-		for (int i = 0; i < size; i++) {
+		//		}
 
-			for (int i = 0; i < size; i++) {
-				for (int q = 0; q < size; q++) {
-					copy_temp_arr[i][q] = temp_arr2[i][q];
-				}
-			}
+		//		for (int i = 0; i < size - 1; i++) {
+		//			if (i == 0) {
+		//				det = temp_arr[i];
+		//			}
+		//			else {
+		//				det *= temp_arr[i];
+		//			}
+		//		}
 
-			int z;
+		//		for (int i = 0; i < size; i++) {
+		//			delete[] temp_arr2[i];
+		//			delete[] temp_arr3[i];
+		//			delete[] copy_temp_arr[i];
+		//		}
+		//		delete[] temp_arr;
+		//		delete[] temp_arr2;
+		//		delete[] temp_arr3;
+		//		delete[] copy_temp_arr;
+		//		temp_arr = nullptr;
+		//		temp_arr2 = nullptr;
+		//		temp_arr3 = nullptr;
+		//		copy_temp_arr = nullptr;
+		//	}
 
-			if (i == 0) {
-				Get_mass(mass, temp_arr2, 0, 0, size);
-				temp_arr[i] = mass[0][0];
+		//	return det;
 
-				for (int ii = 0; ii < size - 1; ii++) {
-					z = 1;
-					for (int q = 0; q < size - 1; q++) {
-						temp_arr2[ii][q] = ((temp_arr[i] * temp_arr2[ii][q]) - (mass[ii + 1][0] * mass[0][z])) / temp_arr[i];
-						z++;
-					}
-				}
-			} else if(i != size - 2){
-				Get_mass(temp_arr2, temp_arr3, 0, 0, size - i);
-				//PrintMatr(temp_arr3, size - i);
-				temp_arr[i] = copy_temp_arr[0][0];
+		//}
 
-				for (int ii = 0; ii < size - 2; ii++) {
-					z = 1;
-					for (int q = 0; q < size - 2; q++) {
-						temp_arr2[ii][q] = ((temp_arr[i] * temp_arr3[ii][q]) - (copy_temp_arr[ii + 1][0] * copy_temp_arr[0][z])) / temp_arr[i];
-						z++;
-					}
-				}
-				//PrintMatr(temp_arr2, size - i);
-			} else if(i == size - 2) {
-				Get_mass(temp_arr2, temp_arr3, 0, 0, size - i);
-				temp_arr[i] = (temp_arr2[0][0] * temp_arr2[1][1]) - (temp_arr2[1][0] * temp_arr2[0][1]);
-				break;
-			}
-
-		}
-
-		for (int i = 0; i < size - 1; i++) {
-			if (i == 0) {
-				det = temp_arr[i];
-			}
-			else {
-				det *= temp_arr[i];
-			}
-		}
-
-		for (int i = 0; i < size; i++) {
-			delete[] temp_arr2[i];
-			delete[] temp_arr3[i];
-			delete[] copy_temp_arr[i];
-		}
-		delete[] temp_arr;
-		delete[] temp_arr2;
-		delete[] temp_arr3;
-		delete[] copy_temp_arr;
-		temp_arr = nullptr;
-		temp_arr2 = nullptr;
-		temp_arr3 = nullptr;
-		copy_temp_arr = nullptr;
-	}
-
-	return det;
-
-}
-
-void Transp(float **mass, int size) {
-
-	float temp;
-	for (int i = 0; i < size; i++) {
-		for (int j = i + 1; j < size; j++) {
-			temp = mass[i][j];
-			mass[i][j] = mass[j][i];
-			mass[j][i] = temp;
-		}
-	}
-
-}
 
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
-		    String ^fname;// объявление строковой переменной
-			openFileDialog1->ShowDialog();//открываем диалоговое окно
-			fname = openFileDialog1->FileName;
-			string covertedFname = msclr::interop::marshal_as<string>(fname);
-			
-			ifstream in(covertedFname);
+		String ^fname;// объявление строковой переменной
+		openFileDialog1->ShowDialog();//открываем диалоговое окно
+		fname = openFileDialog1->FileName;
+		string covertedFname = msclr::interop::marshal_as<string>(fname);
 
-			if (in.is_open())
+		ifstream in(covertedFname);
+
+		if (in.is_open())
+		{
+			//Если открытие файла прошло успешно
+
+			//Вначале посчитаем сколько чисел в файле
+			int count = 0;// число чисел в файле
+			int temp;//Временная переменная
+
+			while (!in.eof())// пробегаем пока не встретим конец файла eof
 			{
-				//Если открытие файла прошло успешно
-
-				//Вначале посчитаем сколько чисел в файле
-				int count = 0;// число чисел в файле
-				int temp;//Временная переменная
-
-				while (!in.eof())// пробегаем пока не встретим конец файла eof
-				{
-					in >> temp;//в пустоту считываем из файла числа
-					count++;// увеличиваем счетчик числа чисел
-				}
-
-				//Число чисел посчитано, теперь нам нужно понять сколько
-				//чисел в одной строке
-				//Для этого посчитаем число пробелов до знака перевода на новую строку 
-
-				//Вначале переведем каретку в потоке в начало файла
-				in.seekg(0, ios::beg);
-				in.clear();
-
-				//Число пробелов в первой строчке вначале равно 0
-				int count_space = 0;
-				char symbol;
-				while (!in.eof())//на всякий случай цикл ограничиваем концом файла
-				{
-					//теперь нам нужно считывать не числа, а посимвольно считывать данные
-					in.get(symbol);//считали текущий символ
-					if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
-					if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
-				}
-
-				//Опять переходим в потоке в начало файла
-				in.seekg(0, ios::beg);
-				in.clear();
-
-				//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
-				//Теперь можем считать матрицу.
-
-				int n = count / (count_space + 1);//число строк
-				int m = count_space + 1;//число столбцов на единицу больше числа пробелов
-
-				Obj1 = Matrix(n, m);
-				//Obj1.Set(n, m);
-
-				dataGridView1->Rows->Clear();
-				dataGridView1->Columns->Clear();
-				dataGridView1->Refresh();
-
-				for (int i = 0; i < m; i++) {
-					dataGridView1->Columns->Add("", "columns " + (i + 1).ToString());
-				}
-				
-				for (int i = 0; i < n; i++) {
-					dataGridView1->Rows->Add("", "");
-				}
-
-				//Считаем матрицу из файла
-				float tempo;
-
-				for (int i = 0; i < n; i++) {				
-					for (int j = 0; j < m; j++){
-						in >> tempo;
-						dataGridView1->Rows[i]->Cells[j]->Value = tempo;						
-						Obj1.setMatrix(i, j, tempo);
-					}
-				}
-
-				//Выведем матрицу
-				
-
-				in.close();//под конец закроем файла
-
-				/*array<String^>^ lines = gcnew array<String^>(dataGridView1->RowCount - (dataGridView1->AllowUserToAddRows ? 1 : 0)); // проверка тут
-				array<String^>^ values = gcnew array<String^>(dataGridView1->ColumnCount);
-
-				for (int i = 0; i < lines->Length;++i) //количество строк указывает размер массива
-				{
-					for (int j = 0; j < dataGridView1->ColumnCount; ++j)
-						values[j] = (String^)dataGridView1->Rows[i]->Cells[j]->Value;
-					lines[i] = String::Join(L" ", values);
-				}
-				IO::File::WriteAllLines("test.txt", lines, System::Text::Encoding::UTF8);*/
-
-
-			} else {
-				MessageBox::Show("неудачно", "Вывод матрицы из файла");
+				in >> temp;//в пустоту считываем из файла числа
+				count++;// увеличиваем счетчик числа чисел
 			}
 
+			//Число чисел посчитано, теперь нам нужно понять сколько
+			//чисел в одной строке
+			//Для этого посчитаем число пробелов до знака перевода на новую строку 
+
+			//Вначале переведем каретку в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Число пробелов в первой строчке вначале равно 0
+			int count_space = 0;
+			char symbol;
+			while (!in.eof())//на всякий случай цикл ограничиваем концом файла
+			{
+				//теперь нам нужно считывать не числа, а посимвольно считывать данные
+				in.get(symbol);//считали текущий символ
+				if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
+				if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
+			}
+
+			//Опять переходим в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
+			//Теперь можем считать матрицу.
+
+			int n = count / (count_space + 1);//число строк
+			int m = count_space + 1;//число столбцов на единицу больше числа пробелов
+
+			Obj1 = Matrix(n, m);
+			//Obj1.Set(n, m);
+
+			dataGridView1->Rows->Clear();
+			dataGridView1->Columns->Clear();
+			dataGridView1->Refresh();
+
+			for (int i = 0; i < m; i++) {
+				dataGridView1->Columns->Add("", "columns " + (i + 1).ToString());
+				dataGridView1->Rows->Add("", "");
+			}
+
+			/*for (int i = 0; i < n; i++) {
+				dataGridView1->Rows->Add("", "");
+			}*/
+
+			//Считаем матрицу из файла
+			float tempo;
+
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < m; j++) {
+					in >> tempo;
+					dataGridView1->Rows[i]->Cells[j]->Value = tempo;
+					Obj1.setMatrix(i, j, tempo);
+				}
+			}
+
+			//Выведем матрицу
+
+
+			in.close();//под конец закроем файла
+
+			/*array<String^>^ lines = gcnew array<String^>(dataGridView1->RowCount - (dataGridView1->AllowUserToAddRows ? 1 : 0)); // проверка тут
+			array<String^>^ values = gcnew array<String^>(dataGridView1->ColumnCount);
+
+			for (int i = 0; i < lines->Length;++i) //количество строк указывает размер массива
+			{
+				for (int j = 0; j < dataGridView1->ColumnCount; ++j)
+					values[j] = (String^)dataGridView1->Rows[i]->Cells[j]->Value;
+				lines[i] = String::Join(L" ", values);
+			}
+			IO::File::WriteAllLines("test.txt", lines, System::Text::Encoding::UTF8);*/
+
+
+		}
+		else {
+			MessageBox::Show("неудачно", "Вывод матрицы из файла");
+		}
+
 	}
-private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-	Close();
-}
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+		Close();
+	}
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	String ^fname;// объявление строковой переменной
-	openFileDialog1->ShowDialog();//открываем диалоговое окно
-	fname = openFileDialog1->FileName;
-	string covertedFname = msclr::interop::marshal_as<string>(fname);
+		String ^fname;// объявление строковой переменной
+		openFileDialog1->ShowDialog();//открываем диалоговое окно
+		fname = openFileDialog1->FileName;
+		string covertedFname = msclr::interop::marshal_as<string>(fname);
 
-	ifstream in(covertedFname);
+		ifstream in(covertedFname);
 
-	if (in.is_open())
-	{
-		//Если открытие файла прошло успешно
-
-		//Вначале посчитаем сколько чисел в файле
-		int count = 0;// число чисел в файле
-		int temp;//Временная переменная
-
-		while (!in.eof())// пробегаем пока не встретим конец файла eof
+		if (in.is_open())
 		{
-			in >> temp;//в пустоту считываем из файла числа
-			count++;// увеличиваем счетчик числа чисел
-		}
+			//Если открытие файла прошло успешно
 
-		//Число чисел посчитано, теперь нам нужно понять сколько
-		//чисел в одной строке
-		//Для этого посчитаем число пробелов до знака перевода на новую строку 
+			//Вначале посчитаем сколько чисел в файле
+			int count = 0;// число чисел в файле
+			int temp;//Временная переменная
 
-		//Вначале переведем каретку в потоке в начало файла
-		in.seekg(0, ios::beg);
-		in.clear();
-
-		//Число пробелов в первой строчке вначале равно 0
-		int count_space = 0;
-		char symbol;
-		while (!in.eof())//на всякий случай цикл ограничиваем концом файла
-		{
-			//теперь нам нужно считывать не числа, а посимвольно считывать данные
-			in.get(symbol);//считали текущий символ
-			if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
-			if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
-		}
-
-		//Опять переходим в потоке в начало файла
-		in.seekg(0, ios::beg);
-		in.clear();
-
-		//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
-		//Теперь можем считать матрицу.
-
-		int n = count / (count_space + 1);//число строк
-		int m = count_space + 1;//число столбцов на единицу больше числа пробелов
-
-		Obj2 = Matrix(n, m);
-		//Obj2.Set(n, m);
-
-		dataGridView2->Rows->Clear();
-		dataGridView2->Columns->Clear();
-		dataGridView2->Refresh();
-
-		for (int i = 0; i < m; i++) {
-			dataGridView2->Columns->Add("", "columns " + (i + 1).ToString());
-		}
-
-		for (int i = 0; i < n; i++) {
-			dataGridView2->Rows->Add("", "");
-		}
-
-		//Считаем матрицу из файла
-
-		float tempo;
-
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				in >> tempo;
-				dataGridView2->Rows[i]->Cells[j]->Value = tempo;						
-				Obj2.setMatrix(i, j, tempo);
-			}
-		}
-
-		//Выведем матрицу
-
-		in.close();//под конец закроем файла
-
-	} else {
-		MessageBox::Show("неудачно", "Вывод матрицы из файла");
-	}
-}
-
-private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)){
-
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
-		
-			string str1;
-			double str2;
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-
-					if (Obj1.getMatrix(i, j) != str2){
-					//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
-					//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
-						Obj1.setMatrix(i, j, (float)str2);
-					}
-
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					}
-				}
+			while (!in.eof())// пробегаем пока не встретим конец файла eof
+			{
+				in >> temp;//в пустоту считываем из файла числа
+				count++;// увеличиваем счетчик числа чисел
 			}
 
-			/*for (int i = 0; i < dataGridView2->RowCount; i++) {
-				for (int j = 0; j < dataGridView2->ColumnCount; j++) {
+			//Число чисел посчитано, теперь нам нужно понять сколько
+			//чисел в одной строке
+			//Для этого посчитаем число пробелов до знака перевода на новую строку 
 
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
+			//Вначале переведем каретку в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
 
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					} else {
-						continue;
-					}
-				}
+			//Число пробелов в первой строчке вначале равно 0
+			int count_space = 0;
+			char symbol;
+			while (!in.eof())//на всякий случай цикл ограничиваем концом файла
+			{
+				//теперь нам нужно считывать не числа, а посимвольно считывать данные
+				in.get(symbol);//считали текущий символ
+				if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
+				if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
+			}
+
+			//Опять переходим в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
+			//Теперь можем считать матрицу.
+
+			int n = count / (count_space + 1);//число строк
+			int m = count_space + 1;//число столбцов на единицу больше числа пробелов
+
+			Obj2 = Matrix(n, m);
+			//Obj2.Set(n, m);
+
+			dataGridView2->Rows->Clear();
+			dataGridView2->Columns->Clear();
+			dataGridView2->Refresh();
+
+			for (int i = 0; i < m; i++) {
+				dataGridView2->Columns->Add("", "columns " + (i + 1).ToString());
+				dataGridView2->Rows->Add("", "");
+			}
+
+			/*for (int i = 0; i < n; i++) {
+				dataGridView2->Rows->Add("", "");
 			}*/
 
-			//Obj3.Set(dataGridView1->RowCount, dataGridView1->ColumnCount);
+			//Считаем матрицу из файла
 
-			Obj3 = Obj1 + Obj2;
+			float tempo;
 
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
-			}
-
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
-			}
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);					
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < m; j++) {
+					in >> tempo;
+					dataGridView2->Rows[i]->Cells[j]->Value = tempo;
+					Obj2.setMatrix(i, j, tempo);
 				}
 			}
 
-		} else {
-			MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			//Выведем матрицу
+
+			in.close();//под конец закроем файла
+
 		}
-	} else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		else {
+			MessageBox::Show("неудачно", "Вывод матрицы из файла");
+		}
 	}
-}
 
-private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
-
-	if(dataGridView1->RowCount != 0){
-		if(dataGridView1->RowCount == dataGridView1->ColumnCount){
-			float **mas = new float *[dataGridView1->ColumnCount];
-
-			/*for (int i = 0; i < dataGridView1->ColumnCount; i++) {
-				mas[i] = new float[dataGridView1->ColumnCount];
-			}*/
-
-			string str1;
-			double str2;
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				mas[i] = new float[dataGridView1->ColumnCount];
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
-					//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
-					mas[i][j] = (float)str2;
-				}
-			}
-
-			/*for (int i = 0; i < dataGridView1->ColumnCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					mas[i][j] = Obj1.getMatrix(i, j);
-				}
-			}*/
-
-			float d = Det(mas, dataGridView1->ColumnCount);
-
-			MessageBox::Show("Детермінант матриці 1 = " + d.ToString(), "");
-
-			for (int i; i < dataGridView1->ColumnCount; i++) {
-				delete[] mas[i];
-			}
-			delete[] mas;
-			mas = nullptr;
-
-		} else {
-			MessageBox::Show("Матриця 1 не квадратна", "Вывод матрицы из файла");
-		}
-		
-	} else {
-		MessageBox::Show("Не введено матрицю №1", "Вывод матрицы из файла");
-	}
-}
-
-private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
-
-			string str1;
-			double str2;
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
-					//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
-					if (Obj1.getMatrix(i, j) != str2) {
-						Obj1.setMatrix(i, j, (float)str2);
-					}
-
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					}
-				}
-			}
-
-			/*for (int i = 0; i < dataGridView2->RowCount; i++) {
-				for (int j = 0; j < dataGridView2->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					} else {
-						continue;
-					}
-				}
-			}*/
-
-			//Obj3.Set(dataGridView1->RowCount, dataGridView1->ColumnCount);
-
-			Obj3 = Obj1 - Obj2;
-
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
-			}
-
-
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
-			}
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
-				}
-			}
-
-		} else {
-			MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
-		}
-	} else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
-	}
-}
-
-private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if (dataGridView1->ColumnCount == dataGridView2->RowCount) {
-
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
-
-			string str1;
-			double str2;
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
-					//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
-					if (Obj1.getMatrix(i, j) != str2) {
-						Obj1.setMatrix(i, j, (float)str2);
-					}
-
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					}
-				}
-			}
-
-			/*for (int i = 0; i < dataGridView2->RowCount; i++) {
-				for (int j = 0; j < dataGridView2->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					}
-					else {
-						continue;
-					}
-				}
-			}*/
-
-			//Obj3.Set(dataGridView1->RowCount, dataGridView1->ColumnCount);
-
-			Obj3 = Obj1 * Obj2;
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
-			}
-
-
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
-			}
-
-			//b = (XX)-1 * X * Y
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
-				}
-			}
-		} else {
-			MessageBox::Show("Множення матриць неможливе, так як кількість стовпців першої матриці(" + dataGridView1->ColumnCount.ToString()
-				+ ") не дорівнює кількості рядків другої матриці(" + dataGridView2->RowCount.ToString() + ")", "Вывод матрицы из файла");
-		}
-
-	} else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
-	}
-}
-private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0) {
-		float **mas = new float *[dataGridView1->ColumnCount];
-
-		string str1;
-		double str2;
-		for (int i = 0; i < dataGridView1->RowCount; i++) {
-			mas[i] = new float[dataGridView1->ColumnCount];
-			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-				str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-				str2 = atof(str1.c_str());
-				//str1 = dataGridView1->Rows[i]->Cells[j]->Value->ToString();
-				//MessageBox::Show(str2.ToString(), "Вывод матрицы из файла");
-				mas[i][j] = (float)str2;
-			}
-		}
-
-		float det = Det(mas, dataGridView1->ColumnCount);
-		if (det != 0) {
+	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
+			if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
 
 				dataGridView3->Rows->Clear();
 				dataGridView3->Columns->Clear();
 				dataGridView3->Refresh();
 
-				float **temp_arr2 = new float *[dataGridView1->ColumnCount - 1];
-				float **temp_arr3 = new float *[dataGridView1->ColumnCount];
-				//float **copy_temp_arr = new float *[size];
-
-				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
-
-					if(i != dataGridView1->ColumnCount - 1){
-						temp_arr2[i] = new float[dataGridView1->ColumnCount - 1];
-					}
-					temp_arr3[i] = new float[dataGridView1->ColumnCount];
-
-				}
-
-				PrintMatr(mas, dataGridView1->ColumnCount);
-
-				Transp(mas, dataGridView1->ColumnCount);
-
-				PrintMatr(mas, dataGridView1->ColumnCount);
+				double str;
 				for (int i = 0; i < dataGridView1->RowCount; i++) {
+
 					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-						Get_mass(mas, temp_arr2, i, j, dataGridView1->ColumnCount);
-						//MessageBox::Show(mas[i][j].ToString()," ", i.ToString(), " ", j.ToString(), "Вывод матрицы из файла");
-						//richTextBox1->Text += mas[i][j], i, j, "\n";
+						str = atof(marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
 
-						//mas[i][j] = Det(temp_arr2, dataGridView1->ColumnCount - 1);
-
-						if ((((i + 1) + (j + 1)) % 2) == 0) {
-							temp_arr3[i][j] = (1 / det) * Det(temp_arr2, dataGridView1->ColumnCount - 1);///1
-						} else {
-							temp_arr3[i][j] = (1 / det) * (Det(temp_arr2, dataGridView1->ColumnCount - 1) * (-1));///1
+						if (Obj1.getMatrix(i, j) != str) {
+							Obj1.setMatrix(i, j, (float)str);
 						}
-						
 
-						/*if ((i + j) == 0) {/////2
-							temp_arr3[i][j] = mas[i][j] / (Det(temp_arr2, dataGridView1->ColumnCount - 1));
-						} else {
-							temp_arr3[i][j] = mas[i][j] / (Det(temp_arr2, dataGridView1->ColumnCount - 1) * (-1));
-						}*/
+						str = atof(marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
 
-						//PrintMatr(temp_arr2, dataGridView1->ColumnCount - 1);
-						//richTextBox1->Text += "-------------------------------------------------------\n";
+						if (Obj2.getMatrix(i, j) != str) {
+							Obj2.setMatrix(i, j, (float)str);
+						}
 					}
 				}
+
+				Obj3 = Obj1 + Obj2;
 
 				for (int i = 0; i < dataGridView1->RowCount; i++) {
 					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
-				}
-
-
-				for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-					dataGridView3->Rows->Add("", "");
-				}
-
-				//PrintMatr(temp_arr3, dataGridView1->ColumnCount - 1);
-
-				/*float **temp_arr4 = new float *[dataGridView1->ColumnCount];
-
-				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
-
-					temp_arr4[i] = new float[dataGridView1->ColumnCount];
-
+					if (i != dataGridView1->RowCount - 1) {
+						dataGridView3->Rows->Add("", "");
+					}
 				}
 
 				for (int i = 0; i < dataGridView1->RowCount; i++) {
 					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-						temp_arr4[i][j] = 0;
-						for (int q = 0; q < dataGridView1->ColumnCount; q++) {
-							temp_arr4[i][j] += mas[i][q] * temp_arr3[q][j];
+						dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+					}
+				}
+
+			}
+			else {
+				MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			}
+		}
+		else {
+			MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		}
+	}
+
+	private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
+
+		if (dataGridView1->RowCount != 0) {
+			if (dataGridView1->RowCount == dataGridView1->ColumnCount) {
+
+				vector <vector <float>> mas(dataGridView1->ColumnCount);
+				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+					mas[i].resize(dataGridView1->ColumnCount);
+				}
+
+				double str;
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						str = atof(marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+						mas[i][j] = (float)str;
+					}
+				}
+
+				float d = Obj1.Det(mas, dataGridView1->RowCount, 1);
+
+				//float d = Det(mas, dataGridView1->ColumnCount);
+
+				if (d == NAN) {
+					MessageBox::Show("Детермінант матриці 1 знайти неможливо", "Детермінант");
+				}
+				else {
+					MessageBox::Show("Детермінант матриці 1 = " + d.ToString(), "Детермінант");
+				}
+
+			}
+			else {
+				MessageBox::Show("Матриця 1 не квадратна", "Вывод матрицы из файла");
+			}
+
+		}
+		else {
+			MessageBox::Show("Не введено матрицю №1", "Вывод матрицы из файла");
+		}
+	}
+
+	private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
+			if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				double str;
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						str = atof(marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+						if (Obj1.getMatrix(i, j) != str) {
+							Obj1.setMatrix(i, j, (float)str);
+						}
+
+						str = atof(marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+
+						if (Obj2.getMatrix(i, j) != str) {
+							Obj2.setMatrix(i, j, (float)str);
 						}
 					}
 				}
 
-				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
-					delete[] temp_arr4[i];
+				//Obj3.Set(dataGridView1->RowCount, dataGridView1->ColumnCount);
+
+				Obj3 = Obj1 - Obj2;
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+					if (i != dataGridView1->RowCount - 1) {
+						dataGridView3->Rows->Add("", "");
+					}
 				}
-
-				delete[] temp_arr4;
-
-				temp_arr4 = nullptr;*/
 
 				for (int i = 0; i < dataGridView1->RowCount; i++) {
 					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-						dataGridView3->Rows[i]->Cells[j]->Value = temp_arr3[i][j];///////////////////////////////////////////////////////////////
+						dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
 					}
 				}
+
+			}
+			else {
+				MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			}
+		}
+		else {
+			MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		}
+	}
+
+	private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
+			if (dataGridView1->ColumnCount == dataGridView2->RowCount) {
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				double str;
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						str = atof(marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+
+						if (Obj1.getMatrix(i, j) != str) {
+							Obj1.setMatrix(i, j, (float)str);
+						}
+
+						str = atof(marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+						if (Obj2.getMatrix(i, j) != str) {
+							Obj2.setMatrix(i, j, (float)str);
+						}
+					}
+				}
+
+				//Obj3.Set(dataGridView1->RowCount, dataGridView1->ColumnCount);
+
+				Obj3 = Obj1 * Obj2;
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+					if (i != dataGridView1->RowCount - 1) {
+						dataGridView3->Rows->Add("", "");
+					}
+				}
+
+				//b = (X^T * X)-1 * X * Y
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+					}
+				}
+			}
+			else {
+				MessageBox::Show("Множення матриць неможливе, так як кількість стовпців першої матриці(" + dataGridView1->ColumnCount.ToString()
+					+ ") не дорівнює кількості рядків другої матриці(" + dataGridView2->RowCount.ToString() + ")", "Вывод матрицы из файла");
+			}
+
+		}
+		else {
+			MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		}
+	}
+	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0) {
+			vector < vector <float>> mas(dataGridView1->ColumnCount);
+			for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+				mas[i].resize(dataGridView1->ColumnCount);
+			}
+
+			double str;
+			for (int i = 0; i < dataGridView1->RowCount; i++) {
+				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+					str = atof(marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+					mas[i][j] = (float)str;
+				}
+			}
+
+			float det = Obj1.Det(mas, dataGridView1->ColumnCount, 1);
+			if (det != 0) {
+				vector < vector <float>> result_mas(dataGridView1->ColumnCount);
+				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+					result_mas[i].resize(dataGridView1->ColumnCount);
+				}
+
+				Obj1.Inverse(mas, result_mas, dataGridView1->ColumnCount, det);
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+					if (i != dataGridView1->RowCount - 1) {
+						dataGridView3->Rows->Add("", "");
+					}
+				}
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						dataGridView3->Rows[i]->Cells[j]->Value = result_mas[i][j];
+					}
+				}
+
+			}
+			else {
+				MessageBox::Show("Визначник матриці дорівнює 0, тому знайти обернену матрицю неможливо.", "Вывод матрицы из файла");
+			}
+		}
+		else {
+			MessageBox::Show("Не введено матрицю", "Вывод матрицы из файла");
+		}
+	}
+
+	private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
+
+		if (dataGridView2->RowCount != 0) {
+			if (dataGridView2->RowCount == dataGridView2->ColumnCount) {
+
+				vector <vector <float>> mas(dataGridView2->ColumnCount);
+				for (int i = 0; i < dataGridView2->ColumnCount; i++) {
+					mas[i].resize(dataGridView2->ColumnCount);
+				}
+
+				double str;
+				for (int i = 0; i < dataGridView2->RowCount; i++) {
+					for (int j = 0; j < dataGridView2->ColumnCount; j++) {
+						str = atof(marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString()).c_str());
+						mas[i][j] = (float)str;
+					}
+				}
+
+				float d = Obj1.Det(mas, dataGridView2->RowCount, 1);
+
+
+				if (d == NAN) {
+					MessageBox::Show("Детермінант матриці 2 знайти неможливо", "Детермінант");
+				}
+				else {
+					MessageBox::Show("Детермінант матриці 2 = " + d.ToString(), "Детермінант");
+
+				}
+
+			}
+			else {
+				MessageBox::Show("Матриця 2 не квадратна", "Вывод матрицы из файла");
+			}
+
+		}
+		else {
+			MessageBox::Show("Не введено матрицю №2", "Вывод матрицы из файла");
+		}
+	}
+
+	private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
+			if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				Obj3 = Obj1 + Obj2;
 
 				for (int i = 0; i < dataGridView1->ColumnCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
 					if (i != dataGridView1->ColumnCount - 1) {
-						delete[] temp_arr2[i];
+						dataGridView3->Rows->Add("", "");
 					}
-					delete[] temp_arr3[i];
 				}
 
-				delete[] temp_arr2;
-				delete[] temp_arr3;
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+					}
+				}
 
-				temp_arr2 = nullptr;
-				temp_arr3 = nullptr;
-
-		} else {
-			MessageBox::Show("Визначник матриці дорівнює 0, тому знайти обернену матрицю неможливо.", "Вывод матрицы из файла");
+			}
+			else {
+				MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			}
 		}
-	} else {
-		MessageBox::Show("Не введено матрицю", "Вывод матрицы из файла");
+		else {
+			MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		}
 	}
-}
+	private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
+		String ^fname;// объявление строковой переменной
+		openFileDialog1->ShowDialog();//открываем диалоговое окно
+		fname = openFileDialog1->FileName;
+		string covertedFname = msclr::interop::marshal_as<string>(fname);
 
-private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
+		ifstream in(covertedFname);
 
-	if (dataGridView2->RowCount != 0) {
-		if (dataGridView1->RowCount == dataGridView1->ColumnCount) {
-			float **mas = new float *[dataGridView2->ColumnCount];
+		if (in.is_open())
+		{
+			//Если открытие файла прошло успешно
 
-			for (int i = 0; i < dataGridView2->ColumnCount; i++) {
-				mas[i] = new float[dataGridView2->ColumnCount];
+			//Вначале посчитаем сколько чисел в файле
+			int count = 0;// число чисел в файле
+			int temp;//Временная переменная
+
+			while (!in.eof())// пробегаем пока не встретим конец файла eof
+			{
+				in >> temp;//в пустоту считываем из файла числа
+				count++;// увеличиваем счетчик числа чисел
 			}
 
-			string str1;
-			double str2;
+			//Число чисел посчитано, теперь нам нужно понять сколько
+			//чисел в одной строке
+			//Для этого посчитаем число пробелов до знака перевода на новую строку 
 
-			for (int i = 0; i < dataGridView2->RowCount; i++) {
-				for (int j = 0; j < dataGridView2->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-					mas[i][j] = (float)str2;
-				}
+			//Вначале переведем каретку в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Число пробелов в первой строчке вначале равно 0
+			int count_space = 0;
+			char symbol;
+			while (!in.eof())//на всякий случай цикл ограничиваем концом файла
+			{
+				//теперь нам нужно считывать не числа, а посимвольно считывать данные
+				in.get(symbol);//считали текущий символ
+				if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
+				if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
 			}
 
-			/*for (int i = 0; i < dataGridView2->ColumnCount; i++) {
-				for (int j = 0; j < dataGridView2->ColumnCount; j++) {
-					mas[i][j] = Obj2.getMatrix(i, j);
-				}
+			//Опять переходим в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
+			//Теперь можем считать матрицу.
+
+			int n = count / (count_space + 1);//число строк
+			int m = count_space + 1;//число столбцов на единицу больше числа пробелов
+
+			//Obj1.Set(n, m);
+
+
+			dataGridView1->Rows->Clear();
+			dataGridView1->Columns->Clear();
+			dataGridView1->Refresh();
+
+			for (int i = 0; i < m; i++) {
+				dataGridView1->Columns->Add("", "columns " + (i + 1).ToString());
+				dataGridView1->Rows->Add("", "");
+			}
+
+			/*for (int i = 0; i < n; i++) {
+				dataGridView1->Rows->Add("", "");
 			}*/
 
-			float d = Det(mas, dataGridView2->ColumnCount);
+			//Считаем матрицу из файла
+			float tempo;
+			float **C = new float*[n];
 
-			MessageBox::Show("Детермінант матриці 2 = " + d.ToString(), "");
-
-			for (int i; i < dataGridView2->ColumnCount; i++) {
-				delete[] mas[i];
-			}
-			delete[] mas;
-			mas = nullptr;
-		} else {
-			MessageBox::Show("Матриця 2 не квадратна", "Вывод матрицы из файла");
-		}
-
-	} else {
-		MessageBox::Show("Не введено матрицю №2", "Вывод матрицы из файла");
-	}
-}
-
-private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
-
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
-
-			/*for (int i = 0; i < dataGridView1->RowCount; i++) {
-
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-
-					if (Obj1.getMatrix(i, j) != str2) {
-						Obj1.setMatrix(i, j, (float)str2);
-					}
-
-					str1 = msclr::interop::marshal_as<string>(dataGridView2->Rows[i]->Cells[j]->FormattedValue->ToString());
-					str2 = atof(str1.c_str());
-
-					if (Obj2.getMatrix(i, j) != str2) {
-						Obj2.setMatrix(i, j, (float)str2);
-					}
-				}
-			}*/
-
-			Obj3 = Obj1 + Obj2;
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
-			}
-
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
-			}
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+			for (int i = 0; i < n; i++) {
+				C[i] = new float[m];
+				for (int j = 0; j < m; j++) {
+					in >> tempo;
+					dataGridView1->Rows[i]->Cells[j]->Value = tempo;
+					C[i][j] = tempo;
 				}
 			}
+
+			Obj1 = Matrix(n, m, C);
+
+			for (int i = 0; i < dataGridView1->RowCount; i++) {
+				delete[] C[i];
+			}
+			delete[] C;
+			C = nullptr;
+
+			//Выведем матрицу
+
+			in.close();//под конец закроем файла
 
 		}
 		else {
-			MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			MessageBox::Show("неудачно", "Вывод матрицы из файла");
 		}
 	}
-	else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
-	}
-}
-private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
-	String ^fname;// объявление строковой переменной
-	openFileDialog1->ShowDialog();//открываем диалоговое окно
-	fname = openFileDialog1->FileName;
-	string covertedFname = msclr::interop::marshal_as<string>(fname);
+	private: System::Void button16_Click(System::Object^  sender, System::EventArgs^  e) {
+		String ^fname;// объявление строковой переменной
+		openFileDialog1->ShowDialog();//открываем диалоговое окно
+		fname = openFileDialog1->FileName;
+		string covertedFname = msclr::interop::marshal_as<string>(fname);
 
-	ifstream in(covertedFname);
+		ifstream in(covertedFname);
 
-	if (in.is_open())
-	{
-		//Если открытие файла прошло успешно
-
-		//Вначале посчитаем сколько чисел в файле
-		int count = 0;// число чисел в файле
-		int temp;//Временная переменная
-
-		while (!in.eof())// пробегаем пока не встретим конец файла eof
+		if (in.is_open())
 		{
-			in >> temp;//в пустоту считываем из файла числа
-			count++;// увеличиваем счетчик числа чисел
-		}
+			//Если открытие файла прошло успешно
 
-		//Число чисел посчитано, теперь нам нужно понять сколько
-		//чисел в одной строке
-		//Для этого посчитаем число пробелов до знака перевода на новую строку 
+			//Вначале посчитаем сколько чисел в файле
+			int count = 0;// число чисел в файле
+			int temp;//Временная переменная
 
-		//Вначале переведем каретку в потоке в начало файла
-		in.seekg(0, ios::beg);
-		in.clear();
-
-		//Число пробелов в первой строчке вначале равно 0
-		int count_space = 0;
-		char symbol;
-		while (!in.eof())//на всякий случай цикл ограничиваем концом файла
-		{
-			//теперь нам нужно считывать не числа, а посимвольно считывать данные
-			in.get(symbol);//считали текущий символ
-			if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
-			if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
-		}
-
-		//Опять переходим в потоке в начало файла
-		in.seekg(0, ios::beg);
-		in.clear();
-
-		//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
-		//Теперь можем считать матрицу.
-
-		int n = count / (count_space + 1);//число строк
-		int m = count_space + 1;//число столбцов на единицу больше числа пробелов
-
-		//Obj1.Set(n, m);
-		
-
-		dataGridView1->Rows->Clear();
-		dataGridView1->Columns->Clear();
-		dataGridView1->Refresh();
-
-		for (int i = 0; i < m; i++) {
-			dataGridView1->Columns->Add("", "columns " + (i + 1).ToString());
-		}
-
-		for (int i = 0; i < n; i++) {
-			dataGridView1->Rows->Add("", "");
-		}
-
-		//Считаем матрицу из файла
-		float tempo;
-		float **C = new float*[n];
-
-		for (int i = 0; i < n; i++) {
-			C[i] = new float[m];
-			for (int j = 0; j < m; j++) {
-				in >> tempo;
-				dataGridView1->Rows[i]->Cells[j]->Value = tempo;
-				C[i][j] = tempo;
-				//Obj1.setMatrix(i, j, tempo);
-			}
-		}
-
-		/*string str1;
-		float str2;
-		float **C;
-		C = new float*[dataGridView1->RowCount];
-
-		for (int i = 0; i < dataGridView1->RowCount; i++) {
-			C[i] = new float[dataGridView1->ColumnCount];
-			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-				str1 = msclr::interop::marshal_as<string>(dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString());
-				str2 = atof(str1.c_str());
-
-				C[i][j] = str2;
-			}
-		}*/
-
-		Obj1 = Matrix(n, m, C);
-
-		for (int i = 0; i < dataGridView1->RowCount; i++) {
-			delete[] C[i];
-		}
-		delete[] C;
-		C = nullptr;
-
-		//Выведем матрицу
-
-
-		in.close();//под конец закроем файла
-
-
-	} else {
-		MessageBox::Show("неудачно", "Вывод матрицы из файла");
-	}
-}
-private: System::Void button16_Click(System::Object^  sender, System::EventArgs^  e) {
-	String ^fname;// объявление строковой переменной
-	openFileDialog1->ShowDialog();//открываем диалоговое окно
-	fname = openFileDialog1->FileName;
-	string covertedFname = msclr::interop::marshal_as<string>(fname);
-
-	ifstream in(covertedFname);
-
-	if (in.is_open())
-	{
-		//Если открытие файла прошло успешно
-
-		//Вначале посчитаем сколько чисел в файле
-		int count = 0;// число чисел в файле
-		int temp;//Временная переменная
-
-		while (!in.eof())// пробегаем пока не встретим конец файла eof
-		{
-			in >> temp;//в пустоту считываем из файла числа
-			count++;// увеличиваем счетчик числа чисел
-		}
-
-		//Число чисел посчитано, теперь нам нужно понять сколько
-		//чисел в одной строке
-		//Для этого посчитаем число пробелов до знака перевода на новую строку 
-
-		//Вначале переведем каретку в потоке в начало файла
-		in.seekg(0, ios::beg);
-		in.clear();
-
-		//Число пробелов в первой строчке вначале равно 0
-		int count_space = 0;
-		char symbol;
-		while (!in.eof())//на всякий случай цикл ограничиваем концом файла
-		{
-			//теперь нам нужно считывать не числа, а посимвольно считывать данные
-			in.get(symbol);//считали текущий символ
-			if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
-			if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
-		}
-
-		//Опять переходим в потоке в начало файла
-		in.seekg(0, ios::beg);
-		in.clear();
-
-		//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
-		//Теперь можем считать матрицу.
-
-		int n = count / (count_space + 1);//число строк
-		int m = count_space + 1;//число столбцов на единицу больше числа пробелов
-
-		//Obj1.Set(n, m);
-
-
-		dataGridView2->Rows->Clear();
-		dataGridView2->Columns->Clear();
-		dataGridView2->Refresh();
-
-		for (int i = 0; i < m; i++) {
-			dataGridView2->Columns->Add("", "columns " + (i + 1).ToString());
-		}
-
-		for (int i = 0; i < n; i++) {
-			dataGridView2->Rows->Add("", "");
-		}
-
-		//Считаем матрицу из файла
-		float tempo;
-		float **C = new float*[n];
-
-		for (int i = 0; i < n; i++) {
-			C[i] = new float[m];
-			for (int j = 0; j < m; j++) {
-				in >> tempo;
-				dataGridView2->Rows[i]->Cells[j]->Value = tempo;
-				C[i][j] = tempo;
-			}
-		}
-
-
-		Obj2 = Matrix(n, m, C);
-
-		for (int i = 0; i < n; i++) {
-			delete[] C[i];
-		}
-		delete[] C;
-		C = nullptr;
-
-		//Выведем матрицу
-
-
-		in.close();//под конец закроем файла
-
-
-	} else {
-		MessageBox::Show("неудачно", "Вывод матрицы из файла");
-	}
-}
-private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
-
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
-
-			Obj3 = Obj1 - Obj2;
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+			while (!in.eof())// пробегаем пока не встретим конец файла eof
+			{
+				in >> temp;//в пустоту считываем из файла числа
+				count++;// увеличиваем счетчик числа чисел
 			}
 
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
+			//Число чисел посчитано, теперь нам нужно понять сколько
+			//чисел в одной строке
+			//Для этого посчитаем число пробелов до знака перевода на новую строку 
+
+			//Вначале переведем каретку в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Число пробелов в первой строчке вначале равно 0
+			int count_space = 0;
+			char symbol;
+			while (!in.eof())//на всякий случай цикл ограничиваем концом файла
+			{
+				//теперь нам нужно считывать не числа, а посимвольно считывать данные
+				in.get(symbol);//считали текущий символ
+				if (symbol == ' ') count_space++;//Если это пробел, то число пробелов увеличиваем
+				if (symbol == '\n') break;//Если дошли до конца строки, то выходим из цикла
 			}
 
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+			//Опять переходим в потоке в начало файла
+			in.seekg(0, ios::beg);
+			in.clear();
+
+			//Теперь мы знаем сколько чисел в файле и сколько пробелов в первой строке.
+			//Теперь можем считать матрицу.
+
+			int n = count / (count_space + 1);//число строк
+			int m = count_space + 1;//число столбцов на единицу больше числа пробелов
+
+			//Obj1.Set(n, m);
+
+
+			dataGridView2->Rows->Clear();
+			dataGridView2->Columns->Clear();
+			dataGridView2->Refresh();
+
+			for (int i = 0; i < m; i++) {
+				dataGridView2->Columns->Add("", "columns " + (i + 1).ToString());
+				dataGridView2->Rows->Add("", "");
+			}
+
+			//Считаем матрицу из файла
+			float tempo;
+			float **C = new float*[n];
+
+			for (int i = 0; i < n; i++) {
+				C[i] = new float[m];
+				for (int j = 0; j < m; j++) {
+					in >> tempo;
+					dataGridView2->Rows[i]->Cells[j]->Value = tempo;
+					C[i][j] = tempo;
 				}
 			}
 
-		} else {
-			MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
-		}
-	} else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
-	}
-}
-private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
-		if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
 
-			dataGridView3->Rows->Clear();
-			dataGridView3->Columns->Clear();
-			dataGridView3->Refresh();
+			Obj2 = Matrix(n, m, C);
 
-			Obj3 = Obj1 * Obj2;
-
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+			for (int i = 0; i < n; i++) {
+				delete[] C[i];
 			}
+			delete[] C;
+			C = nullptr;
 
-			for (int i = 0; i < dataGridView1->ColumnCount - 1; i++) {
-				dataGridView3->Rows->Add("", "");
-			}
+			//Выведем матрицу
 
-			for (int i = 0; i < dataGridView1->RowCount; i++) {
-				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
-					dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
-				}
-			}
+			in.close();//под конец закроем файла
 
 		}
 		else {
-			MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			MessageBox::Show("неудачно", "Вывод матрицы из файла");
 		}
 	}
-	else {
-		MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+	private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
+			if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				Obj3 = Obj1 - Obj2;
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+					if (i != dataGridView1->RowCount - 1) {
+						dataGridView3->Rows->Add("", "");
+					}
+				}
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+					}
+				}
+
+			}
+			else {
+				MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			}
+		}
+		else {
+			MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		}
 	}
-}
-};
+	private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (dataGridView1->ColumnCount != 0 && dataGridView2->ColumnCount != 0) {
+			if ((dataGridView1->ColumnCount == dataGridView2->ColumnCount) && (dataGridView1->RowCount == dataGridView2->RowCount)) {
+
+				dataGridView3->Rows->Clear();
+				dataGridView3->Columns->Clear();
+				dataGridView3->Refresh();
+
+				Obj3 = Obj1 * Obj2;
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					dataGridView3->Columns->Add("", "columns " + (i + 1).ToString());
+					if (i != dataGridView1->RowCount - 1) {
+						dataGridView3->Rows->Add("", "");
+					}
+				}
+
+				for (int i = 0; i < dataGridView1->RowCount; i++) {
+					for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+						dataGridView3->Rows[i]->Cells[j]->Value = Obj3.getMatrix(i, j);
+					}
+				}
+
+			}
+			else {
+				MessageBox::Show("Матриці не однакові", "Вывод матрицы из файла");
+			}
+		}
+		else {
+			MessageBox::Show("Не введено обидві матриці", "Вывод матрицы из файла");
+		}
+	}
+	};
 
 
 }
